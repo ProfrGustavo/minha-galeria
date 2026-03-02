@@ -1,16 +1,232 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>🌈 Galeria Infantil · 50 atividades</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Comic Sans MS', 'Chalkboard', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f9eec1 0%, #fff2d8 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* cabeçalho divertido */
+        .cabecalho {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+        }
+
+        .cabecalho h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #3b2b1f;
+            text-shadow: 4px 4px 0 #fbc490, 6px 6px 0 rgba(255, 185, 90, 0.4);
+            letter-spacing: 2px;
+            word-break: break-word;
+        }
+
+        .cabecalho p {
+            font-size: 1.4rem;
+            background: #ffeec2;
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            box-shadow: 0 6px 0 #d4a373;
+            color: #2f3e2c;
+            margin-top: 0.8rem;
+            font-weight: 600;
+            border: 2px solid #f9b83c;
+        }
+
+        /* contador de espaços */
+        .contador {
+            background: #b6e2b6;
+            padding: 0.4rem 1.8rem;
+            border-radius: 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e4a1e;
+            border: 3px dotted #2d6a4f;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .contador span {
+            background: white;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-left: 0.6rem;
+            border: 2px solid #2d6a4f;
+        }
+
+        /* GRADE RESPONSIVA - 50 espaços */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.2rem;
+            width: 100%;
+            max-width: 1400px;
+            background: #ffeacb;
+            padding: 2rem 1.8rem;
+            border-radius: 60px 60px 30px 30px;
+            border: 6px solid #fbc38b;
+            box-shadow: 0 20px 30px rgba(160, 100, 40, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        /* cada cartão = moldura de atividade */
+        .cartao {
+            background: #fefae0;
+            border-radius: 30px 30px 20px 20px;
+            padding: 1rem 0.7rem 0.8rem 0.7rem;
+            box-shadow: 0 10px 0 #aa7d5a, 0 6px 15px rgba(0,0,0,0.2);
+            border: 2px solid #bc8f6b;
+            transition: transform 0.15s ease, box-shadow 0.15s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cartao:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 0 #8b5f3e, 0 10px 20px rgba(0,0,0,0.25);
+        }
+
+        /* imagem de placeholder + icone brincante */
+        .cartao img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;          /* cobre todo o espaço, mas a maioria é ícone SVG */
+            background: #f7d9b3;
+            border-radius: 25px 25px 15px 15px;
+            border: 4px solid white;
+            outline: 3px solid #e5a978;
+            display: block;
+            transition: 0.2s;
+        }
+
+        /* legenda fictícia da atividade */
+        .cartao .legenda {
+            margin-top: 0.6rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4d3e2b;
+            background: #ffeac0;
+            width: 100%;
+            text-align: center;
+            padding: 0.2rem 0;
+            border-radius: 30px;
+            border: 2px solid #e3b185;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* 50 imagens com links temáticos infantis (placeholders criativos) */
+        /* cada img recebe um link diferente do picsum ou source lúdico */
+        /* ===== imagens com IDs de 1 a 50 ===== */
+
+        /* rodapé */
+        .rodape {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            background: #cfb190;
+            padding: 0.8rem 3rem;
+            border-radius: 100px;
+            color: #2d1f0f;
+            font-weight: bold;
+            border: 4px solid #a47e5c;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="cabecalho">
+        <h1>🎨🧸 ATIVIDADES CRIANÇA 🧩🎈</h1>
+        <p>📸 50 espaços para imagens divertidas</p>
+    </div>
 
+    <div class="contador">
+        ⭐ galeria grade ⭐ <span>50 atividades</span>
+    </div>
 
+    <!-- GALERIA COM 50 ITENS (GRID) -->
+    <div class="galeria">
+        <!-- 1 a 10 – brincadeiras clássicas -->
+        <div class="cartao"><img src="https://picsum.photos/id/1/300/300" alt="criança brincando com blocos"><div class="legenda">🧱 blocos</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/2/300/300" alt="desenho e pintura"><div class="legenda">🖍️ pintura</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/3/300/300" alt="quebra-cabeça"><div class="legenda">🧩 quebra-cabeça</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/4/300/300" alt="massinha modelar"><div class="legenda">🌀 massinha</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/5/300/300" alt="historinha contada"><div class="legenda">📖 conto</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/6/300/300" alt="fantoches"><div class="legenda">🎭 fantoches</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/7/300/300" alt="brinquedos ao ar livre"><div class="legenda">🌳 parquinho</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/8/300/300" alt="bolhas de sabão"><div class="legenda">⚪ bolhas</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/9/300/300" alt="amarelinha"><div class="legenda">🔢 amarelinha</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/10/300/300" alt="roda de música"><div class="legenda">🎵 cantoria</div></div>
 
+        <!-- 11 a 20 – artes e descobertas -->
+        <div class="cartao"><img src="https://picsum.photos/id/11/300/300" alt="colagem com folhas"><div class="legenda">🍂 colagem</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/12/300/300" alt="pintura a dedo"><div class="legenda">🖐️ tinta</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/13/300/300" alt="massinha colorida"><div class="legenda">🌈 massinha</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/14/300/300" alt="lego construção"><div class="legenda">🏗️ lego</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/15/300/300" alt="jogo da memória"><div class="legenda">🧠 memória</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/16/300/300" alt="dominó infantil"><div class="legenda">🔘 dominó</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/17/300/300" alt="carrinhos e pistas"><div class="legenda">🚗 carrinhos</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/18/300/300" alt="bonecas e casinha"><div class="legenda">🏡 casinha</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/19/300/300" alt="fantasia de super-herói"><div class="legenda">🦸 heróis</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/20/300/300" alt="circo malabarismo"><div class="legenda">🤹 circo</div></div>
 
-    não sei o que estou fazendo
+        <!-- 21 a 30 – exploração e movimento -->
+        <div class="cartao"><img src="https://picsum.photos/id/21/300/300" alt="dança das crianças"><div class="legenda">💃 dança</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/22/300/300" alt="pula corda"><div class="legenda">🪢 corda</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/23/300/300" alt="esconde-esconde"><div class="legenda">🙈 esconde</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/24/300/300" alt="plantando sementes"><div class="legenda">🌱 jardinagem</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/25/300/300" alt="cuidar de animal"><div class="legenda">🐶 pet</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/26/300/300" alt="acampamento na sala"><div class="legenda">⛺ acampamento</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/27/300/300" alt="piquenique"><div class="legenda">🧺 piquenique</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/28/300/300" alt="observar nuvens"><div class="legenda">☁️ imaginação</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/29/300/300" alt="fazer slime"><div class="legenda">🧪 slime</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/30/300/300" alt="cavar areia"><div class="legenda">🏖️ areia</div></div>
+
+        <!-- 31 a 40 – brinquedos e jogos calmos -->
+        <div class="cartao"><img src="https://picsum.photos/id/31/300/300" alt="ler livro ilustrado"><div class="legenda">📘 livrinho</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/32/300/300" alt="quebra-cabeça fácil"><div class="legenda">🧩 4 peças</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/33/300/300" alt="jogo de encaixe"><div class="legenda">🔷 formas</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/34/300/300" alt="ábaco colorido"><div class="legenda">🧮 ábaco</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/35/300/300" alt="instrumentos musicais"><div class="legenda">🥁 tambor</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/36/300/300" alt="pintura com guache"><div class="legenda">🎨 guache</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/37/300/300" alt="massinha caseira"><div class="legenda">🍚 massinha</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/38/300/300" alt="roda de história"><div class="legenda">📣 contação</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/39/300/300" alt="fantoche de meia"><div class="legenda">🧦 fantoche</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/40/300/300" alt="brincar de médico"><div class="legenda">🩺 faz de conta</div></div>
+
+        <!-- 41 a 50 – atividades criativas e surpresa -->
+        <div class="cartao"><img src="https://picsum.photos/id/41/300/300" alt="desenho com giz"><div class="legenda">🧑‍🎨 giz calçada</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/42/300/300" alt="fazer braceletes"><div class="legenda">📿 miçangas</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/43/300/300" alt="cavar tesouro"><div class="legenda">💎 caça tesouro</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/44/300/300" alt="lata de brinquedos"><div class="legenda">🧸 brinquedos</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/45/300/300" alt="pipa voando"><div class="legenda">🪁 pipa</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/46/300/300" alt="balanço"><div class="legenda">🌿 balanço</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/47/300/300" alt="escorregador"><div class="legenda">🛝 escorrega</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/48/300/300" alt="futebol com amigos"><div class="legenda">⚽ futebol</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/49/300/300" alt="pula-pula"><div class="legenda">🤸 pula pula</div></div>
+        <div class="cartao"><img src="https://picsum.photos/id/50/300/300" alt="festa surpresa"><div class="legenda">🎂 aniversário</div></div>
+    </div>
+
+    <div class="rodape">
+        🧒 50 espaços preparados para atividades infantis 👧
+    </div>
+
+    <!-- contagem silenciosa (50 itens confirmados) -->
 </body>
 </html>
